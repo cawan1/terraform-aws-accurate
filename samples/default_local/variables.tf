@@ -19,5 +19,5 @@ variable "environment" {
 variable "facebook_app_id" {
   type = string
   description = "Facebook App ID for Cognito Identity Pool"
-  default = "2944127682480605"
+  default = "1111111111111111"
 }

@@ -5,6 +5,11 @@
 *.tfstate
 *.tfstate.*
 
+#Projects
+#Github public comments
+projects/
+projects/*
+
 # Crash log files
 crash.log
 

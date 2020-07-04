@@ -36,4 +36,5 @@ module  "accurate" {
    project = var.project  #lower case required # No special  character required
    environment = var.environment    
    rds_db_password = var.rds_db_password
+   facebook_app_id = var.facebook_app_id
    }

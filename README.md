@@ -26,19 +26,29 @@ This module can be used in diffent ways.
 ### Root Module
 #### Using Remote Backend
 
-#### Using Local Backend
-###
-
      module  "accurate" {    
-        source = "app.terraform.io/accurate/ecr/aws"    
+        source = "app.terraform.io/accurate/accurate/aws"    
         version = "1.0.0"    
-        project = "myproject"
+        project = "myproject"  #lower case required # No special  character required
         environment = "test"   
         rds_db_password = "mypassword123"
         }
+module "accurate" {
+  source  = "app.terraform.io/accurate/accurate/aws"
+  version = "1.0.0"
+}
+#### Using Local Backend
+
+     module  "accurate" {    
+        source = "../../"
+        project = var.project  #lower case required # No special  character required
+        environment = var.environment    
+        rds_db_password = var.rds_db_password
+        facebook_app_id = var.facebook_app_id
+        }
 
 ### Importing desired Child Modules(Just Local)
-###
+
      module "vpc" {
          source = "../../modules/vpc"
          project = var.project
