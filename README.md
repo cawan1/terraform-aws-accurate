@@ -33,10 +33,7 @@ This module can be used in diffent ways.
         environment = "test"   
         rds_db_password = "mypassword123"
         }
-module "accurate" {
-  source  = "app.terraform.io/accurate/accurate/aws"
-  version = "1.0.0"
-}
+
 #### Using Local Backend
 
      module  "accurate" {    

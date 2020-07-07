@@ -7,7 +7,7 @@ Accurate AWS CloudFront and AWS S3 Terraform module.
 
 Terraform module which creates a CDN in AWS using AWS Cloudfront + AWS S3.
 
-This module will create by default a CloudFront Distribution and a S3 Bucket.
+This module will create by default a CloudFront Distribution and a S3 Bucket as Origin and a S3 Bucket for Logs.
 
 ## Usage
 
@@ -36,6 +36,24 @@ This module will create by default a CloudFront Distribution and a S3 Bucket.
 |Name|Description  |
 |--|--|
 |cdn_domainname  | CDN Domain name  |
+
+## Access Logs
+
+CloudFront logs are storaged in a S3 Bucket in a Gzip file in a default log-format.
+[AccessLogs Documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html)
+### Analyzing Access Logs
+
+You can different tools to analize logs when is needed.
+* Using GoAccess 
+	* Requirement:
+		* [GoAccess Instalation](https://goaccess.io/download#installation)
+		* gzip, gunzip, zcat, | . (*Linux distributuion recommended*)
+	* How
+		*  `aws s3 cp s3://BUCKET_LOG/LOG_PATH/[DISERED_FILES] . `
+		* `zcat [DISERED_FILE].gz |goaccess -p goaccess.conf -o [OUTPUT_FILE].html`
+
+ 
+
 
 ## Examples
 [Pantheon-Dev](https://git.acclabs.com.br/gitlab/acc/aplicacao-modelo-aws/src/tree/master/terraform/dev)
