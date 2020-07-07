@@ -10,11 +10,11 @@ variable "environment" {
   default     = "sample"
 }
 
-# variable "rds_db_password" {
-#    type = string
-#    description = "Root user password"
-#    default = "Passw0rd!123456"
-# }
+variable "rds_db_password" {
+   type = string
+   description = "Root user password"
+   default = "Passw0rd!123456"
+}
 
 variable "facebook_app_id" {
   type = string

@@ -20,25 +20,25 @@ provider "aws" {
   profile                 = "pantheon"
 }
 
-# module "vpc" {
-#     source = "../../modules/vpc"
-#     project = var.project
-#     environment = var.environment
-# }
+module "vpc" {
+    source = "../../modules/vpc"
+    project = var.project
+    environment = var.environment
+}
 
-# module "rds" {
-#     source = "../../modules/rds"
-#     project = var.project
-#     environment = var.environment
-#     vpc_id = module.vpc.vpc_id
-#     db_password = var.rds_db_password 
-# }
+module "rds" {
+    source = "../../modules/rds"
+    project = var.project
+    environment = var.environment
+    vpc_id = module.vpc.vpc_id
+    db_password = var.rds_db_password 
+}
 
-# module "cdn" {
-#     source = "../../modules/cdn"
-#     project = var.project
-#     environment = var.environment
-# }
+module "cdn" {
+    source = "../../modules/cdn"
+    project = var.project
+    environment = var.environment
+}
 
 module "cognito" {
   source      = "../../modules/cognito"
