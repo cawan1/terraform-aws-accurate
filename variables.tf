@@ -15,7 +15,7 @@ variable "rds_db_password" {
    description = "Root user password"
 }
 
-variable "facebook_app_id" {
-  type = string
-  description = "Facebook App ID for Cognito Identity Pool"
-}
+# variable "facebook_app_id" {
+#   type = string
+#   description = "Facebook App ID for Cognito Identity Pool"
+# }

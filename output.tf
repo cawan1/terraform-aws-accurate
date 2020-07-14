@@ -28,23 +28,23 @@ output "rds_instance_username" {
   value       = module.rds.rds_instance_username
 }
 
-output "cdn_domainname" {
-  description = "CDN Domain name"
-  value       = module.cdn.cdn_domainname
+# output "cdn_domainname" {
+#   description = "CDN Domain name"
+#   value       = module.cdn.cdn_domainname
 
-}
+# }
 
-output "cognito_user_pool_id" {
-  description = "Cognito User Pool ID"
-  value = module.cognito.cognito_user_pool_id
-}
+# output "cognito_user_pool_id" {
+#   description = "Cognito User Pool ID"
+#   value = module.cognito.cognito_user_pool_id
+# }
 
-output "cognito_user_pool_client_id" {
-  description = "Cognito User Pool Client ID"
-  value = module.cognito.cognito_user_pool_client_id
-}
+# output "cognito_user_pool_client_id" {
+#   description = "Cognito User Pool Client ID"
+#   value = module.cognito.cognito_user_pool_client_id
+# }
 
-output "cognito_identity_pool_id" {
-  description = "Cognito Identity Pool ID"
-  value = module.cognito.cognito_identity_pool_id
-}
+# output "cognito_identity_pool_id" {
+#   description = "Cognito Identity Pool ID"
+#   value = module.cognito.cognito_identity_pool_id
+# }

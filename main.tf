@@ -13,15 +13,15 @@ module "rds" {
     db_password = var.rds_db_password 
 }
 
-module "cdn" {
-    source = "./modules/cdn"
-    project = var.project
-    environment = var.environment
-}
+# module "cdn" {
+#     source = "./modules/cdn"
+#     project = var.project
+#     environment = var.environment
+# }
 
-module "cognito" {
-  source      = "./modules/cognito"
-  project     = var.project
-  environment = var.environment
-  facebook_app_id = var.facebook_app_id
-}
+# module "cognito" {
+#   source      = "./modules/cognito"
+#   project     = var.project
+#   environment = var.environment
+#   facebook_app_id = var.facebook_app_id
+# }
