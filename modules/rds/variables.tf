@@ -76,6 +76,6 @@ variable "vpc_id" {
 
 variable "database_subnets" {
   type = list(string)
-  default = ["20.10.21.0/24", "20.10.22.0/24"]
+  default = ["20.20.21.0/24", "20.20.22.0/24"]
   description = "List of database subnets CIDR"
 }
