@@ -15,13 +15,13 @@ module "vpc" {
   create_database_subnet_route_table     = true
   create_database_internet_gateway_route = true
 
-  enable_dns_hostnames = true
-  enable_dns_support   = true
+  # enable_dns_hostnames = true
+  # enable_dns_support   = true
 
-  #Single NAT Gateway
-  enable_nat_gateway     = true
-  single_nat_gateway     = true
-  one_nat_gateway_per_az = false
+  # #Single NAT Gateway
+  # enable_nat_gateway     = true
+  # single_nat_gateway     = true
+  # one_nat_gateway_per_az = false
 
   #enable_vpn_gateway = true
 
