@@ -40,7 +40,7 @@ variable "db_engine" {
 
 variable "db_engine_version" {
   type = string
-  default = "9.6.9"
+  default = "12.3"
   description = "	The engine version to use"
 }
 
@@ -58,14 +58,14 @@ variable "db_allocated_storage" {
 
 variable "db_family" {
   type = string
-  default = "postgres9.6"
+  default = "postgres12"
   description = "The family of the DB parameter group	"
 }
 
 
 variable "db_major_engine_version" {
   type = string
-  default = "9.6"
+  default = "12"
   description = "	Specifies the major version of the engine that this option group should be associated with"
 }
 
