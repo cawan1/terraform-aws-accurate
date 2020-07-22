@@ -22,6 +22,7 @@ This module will create by default a CloudFront Distribution and a S3 Bucket as 
 |--|--|--|--|--|
 |  project| The name of the project for the repository | `string`| n/a | yes |
 |  environment| The environment of the project  | `string`| n/a | yes |
+|  cname | CNAME for Origin | `string` | n/a | yes |
 |  default_root_object | Default object in CDN | `string` |"index.html" | no |
 |  allowed_methods | Allowed http methods in CDN | `list(string)` | ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"] | no |
 |  cached_methods | Cached http methods in CDN | `list(string)` | ["GET", "HEAD"] | no |
@@ -36,6 +37,7 @@ This module will create by default a CloudFront Distribution and a S3 Bucket as 
 |Name|Description  |
 |--|--|
 |cdn_domainname  | CDN Domain name  |
+|distribution_id | CDN Distribution ID |
 
 ## Access Logs
 

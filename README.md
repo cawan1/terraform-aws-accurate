@@ -38,6 +38,7 @@ This module can be used in diffent ways.
         environment = var.environment    
         rds_db_password = var.rds_db_password
         facebook_app_id = var.facebook_app_id
+        cdn_cname = var.cdn_cname
         }
 
 - #### Example
@@ -81,7 +82,7 @@ This module can be used in diffent ways.
 ### Using Remote Backend
      module  "accurate" {    
         source = "app.terraform.io/accurate/accurate/aws"    
-        version = "1.0.2"    
+        version = "1.1.1"   
         project = "myproject"  #lower case required # No special  character required
         environment = "test"   
         rds_db_password = "mypassword123"
@@ -101,6 +102,7 @@ Check which README for detailed configuration.
   - [Cognito](./modules/cognito/README.md)
   - [VPC](./modules/vpc/README.md)
   - [RDS](./modules/rds/README.md)
+  - [CloudWatch](./modules/cloudwatch/README.md)
 - deployed:
   - [ECR](./modules/ecr/README.md)
 
@@ -113,6 +115,7 @@ ___
 |--|--|--|--|--|
 |  project| The name of the project for the repository lower case required | `string`| n/a | yes |
 |  environment | The environment of the project | `string`| n/a | yes |
+|  cdn_cname | CDN CNAME | `string`| n/a | yes |
 |  rds_db_password | Password for root user in RDS Postgres instance | `string`| n/a | yes |
 |  facebook_app_id | Facebook App ID for Cognito Identity Pool | `string`| n/a | yes |
 
