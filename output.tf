@@ -34,6 +34,13 @@ output "cdn_domainname" {
 
 }
 
+output "distribution_id" {
+  value = module.cdn.distribution_id
+  description = "CDN Distribution ID"
+}
+
+
+
 output "cognito_user_pool_id" {
   description = "Cognito User Pool ID"
   value = module.cognito.cognito_user_pool_id

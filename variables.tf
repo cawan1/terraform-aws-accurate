@@ -10,6 +10,11 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "cdn_cname" {
+  type = string
+  description = "CDN CNAME"
+}
+
 variable "rds_db_password" {
    type = string
    description = "Root user password"
