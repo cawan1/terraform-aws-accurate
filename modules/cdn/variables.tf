@@ -8,6 +8,11 @@ variable "environment" {
     description = "Environment"
 }
 
+variable "cname" {
+  type = string
+  description = "CNAME for Origin"
+}
+
 variable "default_root_object" {
   type = string
   default = "index.html"
@@ -43,7 +48,7 @@ variable "max_ttl" {
 
 variable "cloudfront_default_certificate" {
   type = bool
-  default = true
+  default = false
 }
 
 variable "restriction_type" {
