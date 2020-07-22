@@ -17,6 +17,7 @@ module "cdn" {
     source = "./modules/cdn"
     project = var.project
     environment = var.environment
+    cname = var.cdn_cname
 }
 
 module "cognito" {
