@@ -132,6 +132,8 @@ ___
 |rds_instance_endpoint  | Endpoint Connection  |
 |rds_instance_name  | The database name  |
 |rds_instance_username  | The master username for the database  |
+|cdn_domainname  | CDN Domain name |
+|distribution_id  | CDN Distribution ID  |
 |cognito_user_pool_id | Cognito User Pool ID |
 |cognito_user_pool_client_id | Cognito User Pool Client ID |
 |cognito_identity_pool_id | Cognito Identity Pool ID |
