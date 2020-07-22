@@ -25,3 +25,11 @@ module "cognito" {
   environment = var.environment
   facebook_app_id = var.facebook_app_id
 }
+
+
+module "cloudwatch" {
+    source = "./modules/cloudwatch"
+    project = var.project
+    environment = var.environment
+    distribution_id = module.cdn.distribution_id
+}
