@@ -87,6 +87,7 @@ This module can be used in diffent ways.
         environment = "test"   
         rds_db_password = "mypassword123"
         facebook_app_id = var.facebook_app_id
+        cdn_cname = var.cdn_cname
         }
 
 - #### Example
