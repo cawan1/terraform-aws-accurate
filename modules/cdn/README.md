@@ -15,6 +15,7 @@ This module will create by default a CloudFront Distribution and a S3 Bucket as 
         source = "./modules/cdn"    
         project = "myproject"
         environment = "dev"
+		cname = var.cdn_cname
         }
 
 ## Input
