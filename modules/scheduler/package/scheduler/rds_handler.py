@@ -40,7 +40,7 @@ class RdsScheduler(object):
         for instance_id in self.list_instances(tag_key, tag_value):
             try:
                 self.rds.stop_db_instance(DBInstanceIdentifier=instance_id)
-                message = "Stoping rds instance {0}".format(instance_id)
+                message = "Stoping RDS instance: {0}".format(instance_id)
                 print(message)
                 self.send_mattermost_message(message)
             except ClientError as exc:
@@ -60,7 +60,7 @@ class RdsScheduler(object):
         for instance_id in self.list_instances(tag_key, tag_value):
             try:
                 self.rds.start_db_instance(DBInstanceIdentifier=instance_id)
-                message = "Starting rds instance {0}".format(instance_id)
+                message = "Starting RDS instance: {0}".format(instance_id)
                 print (message)
                 self.send_mattermost_message(message)
             except ClientError as exc:
