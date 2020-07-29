@@ -24,3 +24,13 @@ variable "facebook_app_id" {
   type = string
   description = "Facebook App ID for Cognito Identity Pool"
 }
+
+variable "mattermost_webhook" {
+  type = string
+  description = "Mattermost webhook for lambda notification"
+}
+
+variable "mattermost_channel" {
+  type = string
+  description = "Mattermost channel for lambda notification"
+}

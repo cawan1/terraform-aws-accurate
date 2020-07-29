@@ -13,6 +13,15 @@ module "rds" {
     db_password = var.rds_db_password 
 }
 
+module "scheduler" {
+    source = "./modules/scheduler"
+    project = var.project
+    environment = var.environment
+    mattermost_webhook = var.mattermost_webhook
+    mattermost_channel = var.mattermost_channel
+}
+
+
 module "cdn" {
     source = "./modules/cdn"
     project = var.project
@@ -34,3 +43,5 @@ module "cloudwatch" {
     environment = var.environment
     distribution_id = module.cdn.distribution_id
 }
+
+
