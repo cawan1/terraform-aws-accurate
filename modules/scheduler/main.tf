@@ -242,6 +242,7 @@ resource "aws_lambda_function" "stop" {
       TAG_VALUE                 = "${var.project}-postgres-${var.environment}"
       RDS_SCHEDULE              = "true"
       MATTERMOST_WEBHOOK        = var.mattermost_webhook
+      MATTERMOST_CHANNEL        = var.mattermost_channel
       # CLOUDWATCH_ALARM_SCHEDULE = var.cloudwatch_alarm_schedule
     }
   }
