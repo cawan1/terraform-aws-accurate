@@ -29,10 +29,10 @@ resource "aws_cognito_identity_pool" "this" {
   }
   supported_login_providers = {
     #https://docs.aws.amazon.com/cli/latest/reference/cognito-identity/create-identity-pool.html
-    "graph.facebook.com"  = var.facebook_app_id
+    "graph.facebook.com"  = var.facebook_app_id,
     "accounts.google.com" = "781500125343-f614562moml01daaehh5urrntsnlig3t.apps.googleusercontent.com"
   }
-  openid_connect_provider_arns = ["arn:aws:iam::790261131557:oidc-provider/git.acclabs.com.br/gitlab/"']
+  openid_connect_provider_arns = ["arn:aws:iam::790261131557:oidc-provider/git.acclabs.com.br/gitlab/"]
 }
 
 
