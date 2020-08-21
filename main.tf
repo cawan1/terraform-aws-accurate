@@ -21,6 +21,11 @@ module "scheduler" {
     mattermost_channel = var.mattermost_channel
 }
 
+module "storage" {
+    source = "./modules/storage"
+    project = var.project
+    environment = var.environment
+}
 
 module "cdn" {
     source = "./modules/cdn"
@@ -34,6 +39,7 @@ module "cognito" {
   project     = var.project
   environment = var.environment
   facebook_app_id = var.facebook_app_id
+  bucket_uploads_arn = module.storage.aws_s3_bucket_uploads_arn
 }
 
 

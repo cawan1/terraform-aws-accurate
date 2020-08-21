@@ -14,9 +14,12 @@ resource "aws_cognito_user_pool_client" "this" {
   generate_secret     = false
 }
 
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
 locals {
   identity_pool_name = join("", [var.project, "IdentityPool", var.environment])
-  s3_arn_private =  join("", ["arn:aws:s3:::testecawan", "/private/$", "{cognito-identity.amazonaws.com:sub}/*"])
+  s3_arn_private =  join("", [var.bucket_uploads_arn, "/private/$", "{cognito-identity.amazonaws.com:sub}/*"])
   authenticated_policy = {
     "Version": "2012-10-17",
     "Statement": [
@@ -34,7 +37,7 @@ locals {
                 "execute-api:Invoke"
         ],
         "Effect": "Allow",
-        "Resource": "arn:aws:execute-api:us-east-1:*:*/*"
+        "Resource": "arn:aws:execute-api:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*/*"
       },
       {
         "Action": [
