@@ -102,6 +102,15 @@ resource "aws_iam_role_policy" "authenticated" {
             ],
             "Resource": "arn:aws:execute-api:us-east-1:*:*/*",
             "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*/$\{cognito-identity.amazonaws.com:sub}/*'
+            ],
+            "Effect": "Allow"
         }
     ]
 }
