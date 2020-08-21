@@ -65,3 +65,18 @@ output "cognito_identity_pool_id" {
   description = "Cognito Identity Pool ID"
   value = module.cognito.cognito_identity_pool_id
 }
+
+output "cognito_authenticated_role" {
+  description = "Cognito Authenticated Role ARN"
+  value = module.cognito.cognito_authenticated_role
+}
+
+output "storage_uploads_arn" {
+  description = "S3 Bucket ARN for app uploads"
+  value = module.storage.aws_s3_bucket_uploads_arn
+}
+
+output "storage_uploads_name" {
+  description = "S3 Bucket Name for app uploads"
+  value = module.storage.aws_s3_bucket_uploads_name
+}

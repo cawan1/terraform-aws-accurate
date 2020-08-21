@@ -9,3 +9,7 @@ output "cognito_user_pool_client_id" {
 output "cognito_identity_pool_id" {
     value = aws_cognito_identity_pool.this.id
 }
+
+output "cognito_authenticated_role" {
+    value = aws_iam_role.authenticated.arn
+}
