@@ -35,6 +35,13 @@ locals {
         ],
         "Effect": "Allow",
         "Resource": "arn:aws:execute-api:us-east-1:*:*/*"
+      },
+      {
+        "Action": [
+                "s3:*"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::*/*"
       }
 
     ]
