@@ -16,6 +16,53 @@ resource "aws_cognito_user_pool_client" "this" {
 
 locals {
   identity_pool_name = join("", [var.project, "IdentityPool", var.environment])
+
+  authenticated_policy = {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": [
+                "mobileanalytics:PutEvents",
+                "cognito-sync:*",
+                "cognito-identity:*"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Action": [
+                "execute-api:Invoke"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:execute-api:us-east-1:*:*/*"
+      }
+
+    ]
+  }
+
+  authenticated_assume_policy = {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow"
+        "Principal": {
+          "Federated": "cognito-identity.amazonaws.com"
+        }
+        "Action": [
+          "sts:AssumeRoleWithWebIdentity"
+        ],
+        "Condition": {
+          "StringEquals": {
+            "cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.this.id}"
+          },
+          "ForAnyValue:StringLike": {
+            "cognito-identity.amazonaws.com:amr": "authenticated"
+          }
+        }
+      }
+    ]
+  }
+
 }
 
 resource "aws_cognito_identity_pool" "this" {
@@ -50,31 +97,7 @@ resource "aws_cognito_identity_pool_roles_attachment" "main" {
 
 resource "aws_iam_role" "authenticated" {
   name = "${var.project}_cognito_authenticated_${var.environment}"
-
-  assume_role_policy = <<EOF
-{
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Principal": {
-            "Federated": "cognito-identity.amazonaws.com"
-          },
-          "Action": ["sts:AssumeRoleWithWebIdentity"],
-          "Condition": {
-            "StringEquals": {
-              "cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.this.id}"
-            },
-            "ForAnyValue:StringLike": {
-              "cognito-identity.amazonaws.com:amr": "authenticated"
-            }
-          }
-        }
-      ]
-}
-
-EOF
-
+  assume_role_policy = jsonencode(local.authenticated_assume_policy)
 }
 
 #data "aws_region" "current" {}
@@ -82,39 +105,5 @@ EOF
 resource "aws_iam_role_policy" "authenticated" {
   name = "${var.project}CognitoAuthorizedPolicy${var.environment}"
   role = aws_iam_role.authenticated.id
-
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "mobileanalytics:PutEvents",
-                "cognito-sync:*",
-                "cognito-identity:*"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        },
-        {
-            "Action": [
-                "execute-api:Invoke"
-            ],
-            "Resource": "arn:aws:execute-api:us-east-1:*:*/*",
-            "Effect": "Allow"
-        },
-        {
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::*'
-            ],
-            "Effect": "Allow"
-        }
-    ]
-}
-
-EOF
-
+  policy = jsonencode(local.authenticated_policy)
 }
