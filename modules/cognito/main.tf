@@ -108,7 +108,7 @@ resource "aws_iam_role_policy" "authenticated" {
                 "s3:*"
             ],
             "Resource": [
-                "arn:aws:s3:::*/$${cognito-identity.amazonaws.com:sub}/*'
+                "arn:aws:s3:::*'
             ],
             "Effect": "Allow"
         }
