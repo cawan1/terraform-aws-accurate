@@ -41,7 +41,7 @@ locals {
                 "s3:*"
         ],
         "Effect": "Allow",
-        "Resource": "arn:aws:s3:::*/*"
+        "Resource": join("", ["arn:aws:s3:::testecawan", "/private/$", "{cognito-identity.amazonaws.com:sub}/*"])
       }
 
     ]
