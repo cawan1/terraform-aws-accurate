@@ -16,7 +16,7 @@ resource "aws_cognito_user_pool_client" "this" {
 
 locals {
   identity_pool_name = join("", [var.project, "IdentityPool", var.environment])
-
+  s3_arn_private =  join("", ["arn:aws:s3:::testecawan", "/private/$", "{cognito-identity.amazonaws.com:sub}/*"])
   authenticated_policy = {
     "Version": "2012-10-17",
     "Statement": [
@@ -41,7 +41,7 @@ locals {
                 "s3:*"
         ],
         "Effect": "Allow",
-        "Resource": join("", ["arn:aws:s3:::testecawan", "/private/$", "{cognito-identity.amazonaws.com:sub}/*"])
+        "Resource": local.s3_arn_private 
       }
 
     ]
